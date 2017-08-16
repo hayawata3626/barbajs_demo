@@ -1,0 +1,71 @@
+{
+  "name": "web-starter-kit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "watch:browser": "browser-sync start --config bs-config.js",
+    "watch:pug": "pug src --pretty --out dist -w",
+    "watch:copy": "cpx \"./src/**/{*.jpg,*.png,*gif,.svg,.eot,*.ttf,*.woff,*.json}\" ./dist -w",
+    "watch:sass": "node-sass src/css -o dist/css -w",
+    "watch:webpack": "webpack --config webpack.config.js -w",
+    "build:postcss": "postcss dist/css/common.css --config postcss.json -r",
+    "build:pug": "pug src --out dist",
+    "build:copy": "cpx \"./src/**/{*.html,*.jpg,*.png,*gif,.svg,.eot,*.ttf,*.woff,*.json}\" ./dist",
+    "build:webpack": "webpack --optimize-minimize",
+    "build:clean": "rimraf dist/_*html",
+    "watch": "npm-run-all -p watch:*",
+    "build": "npm-run-all -s build:copy build:pug build:clean build:postcss build:webpack"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "dependencies": {
+    "autoprefixer": "^6.5.4",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.18.5",
+    "css-mqpacker": "^5.0.1",
+    "cssnano": "^3.9.1",
+    "lodash": "^4.17.2",
+    "moment": "^2.17.1",
+    "postcss-assets": "^4.1.0",
+    "postcss-cli": "^2.6.0",
+    "postcss-import": "^9.0.0",
+    "postcss-scss": "^0.4.0",
+    "postcss-utilities": "^0.6.1",
+    "precss": "^1.4.0",
+    "pug-cli": "^1.0.0-alpha6",
+    "vue": "^2.3.3",
+    "vue-router": "^2.5.3",
+    "watchify": "^3.8.0"
+  },
+  "devDependencies": {
+    "axios": "^0.16.2",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "browser-sync": "^2.18.11",
+    "cheerio-httpcli": "^0.7.0",
+    "cpx": "^1.5.0",
+    "css-loader": "^0.28.4",
+    "glob": "^7.1.2",
+    "json-loader": "^0.5.7",
+    "net": "^1.0.2",
+    "node-sass": "^4.5.2",
+    "npm-run-all": "^4.0.2",
+    "path": "^0.12.7",
+    "sass-loader": "^6.0.6",
+    "tls": "0.0.1",
+    "try-thread-sleep": "^1.0.2",
+    "vue-cli": "^2.8.2",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^13.0.0",
+    "vue-template-compiler": "^2.3.3",
+    "webpack": "^2.6.1"
+  }
+}
+

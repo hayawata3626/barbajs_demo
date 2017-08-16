@@ -1,0 +1,22 @@
+html
+  head
+    meta(charset='UTF-8')
+    title TOP｜Barba.js DEMO
+    link(rel='stylesheet', href='./css/style.css')
+  body
+    main#barba-wrapper
+      nav
+        a(href='index.html') トップへ
+        a(href='about.html') アバウトへ
+      .barba-container
+        a(href='about.html') aboutページへ
+        ul.box
+          li.box_item Box1
+          li.box_item Box2
+          li.box_item Box3
+          li.box_item Box4
+    .shutter.shutter-a
+    .shutter.shutter-b
+    // CDNでBarba.jsを読み込む
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js')
+    script(src='js/app.js')
