@@ -1,34 +1,32 @@
 html, body{
-    margin:0;
-    padding:0;
+  margin:0;
+  padding:0;
 }
 
 nav {
-    background: #ccc;
-    box-shadow: 1px 2px 1px #ccc;
-    padding:30px;
-    text-align: center;
-}
-
-nav a {
+  background: #ccc;
+  box-shadow: 1px 2px 1px #ccc;
+  padding:30px;
+  text-align: center; 
+  a {
     color: #fff;
     text-decoration: none;
+  }
 }
 
 .box {
-    display: flex;
-    justify-content: space-around;
-}
-
-.box_item {
-  background:#00fa9a;
-  color:#fff;
-  opacity:0;
-  position: relative;
-  top: 0;
-  width:150px;
-  padding:30px;
-  transition:all .5s ease-in-out;
+  display: flex;
+  justify-content: space-around;
+  &_item {
+    background:#00fa9a;
+    color:#fff;
+    opacity:0;
+    position: relative;
+    top: 0;
+    width:150px;
+    padding:30px;
+    transition:all .5s ease-in-out;
+  }
 }
 
 /*アニメーションの動きの方向*/

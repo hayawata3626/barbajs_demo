@@ -1,20 +1,20 @@
 Barba.Pjax.start();
-const box = document.querySelector('.box_item');
+const index = document.querySelector('.barba-container'),
+      box_item = document.getElementsByClassName('box_item');
+      
 const ShutterAnimation = Barba.BaseTransition.extend({
  
   // Barba.jsで定義されている。コンストラクタと考えてよいそうです。
   start: function() {
-    this.shutter(400)
+    this.pullDown(400)
       .then(this.newContainerLoading)
       .then(this.disapperEl())
       .then(this.finish.bind(this))
       .then(this.transitionCompleted)
   },
  
-  // シャッターが閉まるようなアニメーションをさせる処理
-  shutter: function(timer) {
+  pullDown: function(timer) {
     return new Promise( function (resolve) {
-      // 画面が黄色く埋まるまで（400ms）待つ
       setTimeout(function () {
         resolve();
       }, timer);
@@ -26,22 +26,22 @@ const ShutterAnimation = Barba.BaseTransition.extend({
     this.done();
   },
   transitionCompleted: function (){
-    var box = document.querySelector('.box_item');
-    var index = document.querySelector('.barba-container');
-    var sample = document.getElementsByClassName('box_item');
     
     for(var i =0; i < 4; i++){
       setTimeout(demo(i), 4000);
       function demo(i) {
-        sample[i].classList.add('is-active');
+        box_item[i].classList.add('is-active');
      }
     }
   },
   disapperEl: function() {
-    const box = document.querySelector('.box_item')
-    box.classList.remove('is-active');
+    for(var i =0; i < 4; i++){
+      setTimeout(demo(i), 4000);
+      function demo(i) {
+        box_item[i].classList.remove('is-active');
+     }
+    }
   }
- 
 });
  
 Barba.Pjax.getTransition = function() {

@@ -1,0 +1,12 @@
+doctype html
+block vars
+html(lang="ja")
+  head
+    include _meta.pug
+  body
+    main#barba-wrapper
+      include _header.pug
+      .barba-container
+        block contents
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js')
+    script(src='js/app.js')
