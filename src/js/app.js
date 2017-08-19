@@ -1,16 +1,17 @@
 Barba.Pjax.start();
-const index = document.querySelector('.barba-container'),
+var index = document.querySelector('.barba-container'),
       box_item = document.getElementsByClassName('box_item');
-      
+
 const ShutterAnimation = Barba.BaseTransition.extend({
  
   // Barba.jsで定義されている。コンストラクタと考えてよいそうです。
   start: function() {
-    this.pullDown(400)
+    this.pullDown(1000)
       .then(this.newContainerLoading)
+      .then(this.transitionCompleted)
       .then(this.disapperEl())
       .then(this.finish.bind(this))
-      .then(this.transitionCompleted)
+      
   },
  
   pullDown: function(timer) {
@@ -26,21 +27,22 @@ const ShutterAnimation = Barba.BaseTransition.extend({
     this.done();
   },
   transitionCompleted: function (){
-    
-    for(var i =0; i < 4; i++){
-      setTimeout(demo(i), 4000);
-      function demo(i) {
-        box_item[i].classList.add('is-active');
-     }
-    }
+    for(var i = 0; i < box_item.length; i++){
+      (function(pram) {
+        setTimeout(function() {
+          box_item[pram].classList.add('is-active');
+        }, pram * 200);
+      })(i);
+    };
   },
   disapperEl: function() {
-    for(var i =0; i < 4; i++){
-      setTimeout(demo(i), 4000);
-      function demo(i) {
-        box_item[i].classList.remove('is-active');
-     }
-    }
+    for(var i = 0; i < box_item.length; i++){
+      (function(pram) {
+        setTimeout(function() {
+          box_item[pram].classList.remove('is-active');
+        }, pram * 200);
+      })(i);
+    };
   }
 });
  
