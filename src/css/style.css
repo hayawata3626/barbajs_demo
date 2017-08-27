@@ -17,6 +17,7 @@ nav {
 .box {
   display: flex;
   justify-content: space-around;
+  flex-wrap:wrap;
   &_item {
     background:#00fa9a;
     color:#fff;

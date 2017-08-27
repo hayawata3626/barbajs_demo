@@ -5,10 +5,10 @@
   "scripts": {
     "watch:browser": "browser-sync start --config bs-config.js",
     "watch:pug": "pug src --pretty --out dist -w",
-    "watch:copy": "cpx \"./src/**/{*.jpg,*.png,*gif,.svg,.eot,*.ttf,*.woff,*.json}\" ./dist -w",
-    "watch:sass": "node-sass src/css -o dist/css -w",
+    "watch:postcss": "postcss --config config/postcss.json -o ./dist/css/style.css ./src/css/*.css --log -w",
     "watch:webpack": "webpack --config webpack.config.js -w",
-    "build:postcss": "postcss dist/css/common.css --config postcss.json -r",
+    "watch:copy": "cpx \"./src/**/{*.jpg,*.png,*gif,.svg,.eot,*.ttf,*.woff,*.json}\" ./dist -w",
+    "build:postcss": "postcss dist/css/common.css --config postcss.json -r -w",
     "build:pug": "pug src --out dist",
     "build:copy": "cpx \"./src/**/{*.html,*.jpg,*.png,*gif,.svg,.eot,*.ttf,*.woff,*.json}\" ./dist",
     "build:webpack": "webpack --optimize-minimize",
@@ -58,6 +58,7 @@
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
     "path": "^0.12.7",
+    "postcss-cli": "^2.6.0",
     "sass-loader": "^6.0.6",
     "tls": "0.0.1",
     "try-thread-sleep": "^1.0.2",
@@ -68,4 +69,3 @@
     "webpack": "^2.6.1"
   }
 }
-

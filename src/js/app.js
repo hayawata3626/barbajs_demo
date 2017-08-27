@@ -1,17 +1,14 @@
 Barba.Pjax.start();
-var index = document.querySelector('.barba-container'),
-      box_item = document.getElementsByClassName('box_item');
+var box_item = document.getElementsByClassName('box_item');
 
 const ShutterAnimation = Barba.BaseTransition.extend({
  
-  // Barba.jsで定義されている。コンストラクタと考えてよいそうです。
   start: function() {
     this.pullDown(1000)
       .then(this.newContainerLoading)
-      .then(this.transitionCompleted)
       .then(this.disapperEl())
+      .then(this.transitionCompleted)
       .then(this.finish.bind(this))
-      
   },
  
   pullDown: function(timer) {
@@ -30,6 +27,7 @@ const ShutterAnimation = Barba.BaseTransition.extend({
     for(var i = 0; i < box_item.length; i++){
       (function(pram) {
         setTimeout(function() {
+          box_item = document.getElementsByClassName('box_item');
           box_item[pram].classList.add('is-active');
         }, pram * 200);
       })(i);
