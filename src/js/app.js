@@ -19,10 +19,7 @@ const ShutterAnimation = Barba.BaseTransition.extend({
     });
   },
  
-  // アニメーションの終了を示すためにthis.done()を呼ぶことが必須
-  finish: function() {
-    this.done();
-  },
+  
   transitionCompleted: function (){
     for(var i = 0; i < box_item.length; i++){
       (function(pram) {
@@ -41,6 +38,10 @@ const ShutterAnimation = Barba.BaseTransition.extend({
         }, pram * 200);
       })(i);
     };
+  },
+  // アニメーションの終了を示すためにthis.done()を呼ぶことが必須
+  finish: function() {
+    this.done();
   }
 });
  

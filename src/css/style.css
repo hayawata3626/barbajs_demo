@@ -1,16 +1,39 @@
+/* @import "normalize";
+@import "reset";
+
+/*初期設定*/
 html, body{
   margin:0;
   padding:0;
+  width:100%; 
+  height: 100%;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  background:moccasin;
+  opacity:0;
+  position: relative;
+  ul {
+    display:flex;
+    justify-content:space-around;
+  }
 }
 
 nav {
-  background: #ccc;
   box-shadow: 1px 2px 1px #ccc;
-  padding:30px;
+  padding:20px;
   text-align: center; 
   a {
     color: #fff;
-    text-decoration: none;
   }
 }
 
@@ -48,3 +71,89 @@ nav {
   top:100px;
   opacity: 1;
 }
+
+/*メニューのcss*/
+
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+.menu-trigger {
+  position: relative;
+  width: 50px;
+  height: 44px;
+}
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+  top: 20px;
+}
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &_img {
+    transform:scale(0, 0);
+    /* transition:all .5s ease-in-out; */
+  }
+}
+
+.shutter {
+  width:100%;
+  height:50%;
+  background:#ccc;
+  position: fixed;
+  &.right {
+    top: 0;
+  }
+  &.left {
+    bottom: 0;
+  }
+}
+
+/*profile*/
+
+.item_lists{
+  display: flex;
+  flex-wrap:wrap;
+  li {
+    width:200px;
+    padding:30px;
+    background:#fff;
+    background: #aaa;
+    margin: 30px 10px;
+    color:#fff;
+  }
+}
+
+/*縦書きにする*/
+
+.firstview{
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%);
+  p {
+    margin:0 10px;
+    font-weight:bold;
+    font-size:20px;
+  }
+}
+
