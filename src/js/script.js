@@ -3,7 +3,7 @@ const left = document.getElementsByClassName("left"),
       header = document.getElementsByClassName("header"),
       loading = document.getElementsByClassName("loading_img"),
       text = document.getElementsByClassName("hayatsu"),
-      text_second = document.getElementsByClassName("huziwara");  
+      text_second = document.getElementsByClassName("huziwara");
 
 function moveUp(el){
   Velocity(el, {
@@ -41,7 +41,7 @@ function fadeOut(el){
   }, {
     duration:900,
     ease:"ease"
-    
+
   }),
  Velocity(el, {
     scale:["0", "1"]
@@ -54,7 +54,7 @@ function fadeOut(el){
       textMove(text)
       textMove_second(text_second)
     }
-  }); 
+  });
 }
 
 function textMove(el) {
@@ -65,7 +65,7 @@ function textMove(el) {
     duration:1000,
     delay:500,
     ease:"ease-in-out"
-  }); 
+  });
 }
 
 function textMove_second(el) {
@@ -76,7 +76,7 @@ function textMove_second(el) {
     duration:1000,
     delay:500,
     ease:"ease-in-out"
-  }); 
+  });
 }
 
 
@@ -92,7 +92,7 @@ function animate(){
 
 
 window.onload = () => {
- fadeOut(loading) 
+ fadeOut(loading)
 }
 
 animate();
